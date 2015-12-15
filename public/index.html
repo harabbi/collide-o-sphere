@@ -1,0 +1,69 @@
+<html ng-app="CollideOSphere">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-red.min.css">
+    <link rel="stylesheet" href="css/angular-datepicker.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/angular-datepicker.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-controller="appCtrl">
+    <div class="fluid-container">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/home">Collide-O-Sphere</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li ng-class="{ active: isActive('/home')}"><a href="#/home">Home</a></li>
+              <li ng-class="{ active: isActive('/faq')}"><a href="#/faq">Pricing/FAQ</a></li>
+              <li ng-class="{ active: isActive('/locations')}"><a href="#/locations">Locations</a></li>
+              <li ng-class="{ active: isActive('/book')}"><a href="#/book">Book an Event</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-show="current_user">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{current_user.first_name}} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ng-show="current_user.is_staff"><a href="#/users">User List</a></li>
+                  <li ng-show="current_user.is_staff"><a href="#/rental-requests">Rental Requests</a></li>
+                  <li ng-show="current_user.is_staff" role="separator" class="divider"></li>
+                  <li><a ng-click="logOut()" >Sign Out</a></li>
+                </ul>
+              </li>
+            </ul>
+            <button type="button" class="btn btn-default navbar-btn navbar-right" ng-click="showLogin = true" ng-hide="showLogin || current_user">Sign in</button>
+            <form class="navbar-form navbar-right" role="login" ng-show="showLogin" ng-submit="logIn(this)" form-auto-fill-fix>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="email@domain.com" ng-model="user.email">
+                <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
+              </div>
+              <button type="submit" class="btn btn-default" id="login-button">Submit</button>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+      <div class="content">
+        <div ng-view></div>
+      </div>
+      <div class="col-md-12 footer">
+        Collide-O-Sphere is pretty awesome. If you want to contact us, you probably should...
+      </div>
+    </div>
+  </body>
+</html>

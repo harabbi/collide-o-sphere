@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Locations</h1>
+      <div ng-init="showPoc = false;">
+        We have used these locations in the past, but are always interested in
+        finding new places to play!
+        <span ng-hide="showPoc">
+          <a ng-click="showPoc = true; focusPac()">Click Here</a>
+          to suggest a new place.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Current Locations</h3>
+      <ol>
+        <li ng-repeat="place in places" id="{{place.place_id}}" ng-hide="place.pending">
+          <span ng-show="current_user && current_user.is_staff">
+            <a ng-click="removePlace(place)" class="pointer">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color: red;"></span>
+            </a>
+          </span>
+          {{place.name}} - <a href="#/book?place_id={{place.id}}">Book an Event HERE!</a>
+        </li>
+      </ol>
+
+      <div ng-show="current_user && current_user.is_staff">
+        <h3>Pending Locations</h3>
+        <ol>
+          <li ng-repeat="place in places" id="{{place.place_id}}" ng-show="place.pending">
+            <span ng-show="current_user && current_user.is_staff">
+              <a ng-click="confirmPlace(place)" class="pointer">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color: green;"></span>
+              </a>
+            </span>
+            {{place.name}}
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <input id="pac-input" class="controls" type="text" placeholder="Enter a location" ng-show="showPoc">
+      <div id="map"></div>
+    </div>
+  </div>
+</div>

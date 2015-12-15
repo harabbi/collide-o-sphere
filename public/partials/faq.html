@@ -1,0 +1,77 @@
+<div class="container">
+  <center>
+    <img src="/images/faq.jpg" />
+    <h1>Pricing</h1>
+    <table class="pricing">
+      <tr><th></th><th>First Hour</th><th>Each Additional Hour</th></tr>
+      <tr><td>3v3 Rental (6 Spheres)</td><td>$200</td><td>$50</td></tr>
+      <tr><td>4v4 Rental (8 Spheres)</td><td>$225</td><td>$50</td></tr>
+      <tr><td>5v5 Rental (10 Spheres)</td><td>$240</td><td>$50</td></tr>
+      <tr><td>6v6 Rental (12 Spheres)</td><td>$250</td><td>$50</td></tr>
+      <tr><td>Globes (2 Giant Object Balls)</td><td>$50</td><td>$10</td></tr>
+      <tr><td>Venue Rental</td><td><i>varies*</i></td><td><i>varies*</i></td></tr>
+    </table>
+    <p>
+      * We have discount rental agreements with several venues in the area. We can
+      coordinate the rental of an indoor venue, or you may do so yourself, though
+      we strongly suggest to stick with locations that we have worked with before.
+    </p>
+
+    <h1>Frequently Asked Questions</h1>
+  </center>
+
+  <hr class="featurette-divider" />
+
+  <ul class='faq' ng-hide="current_user && current_user.is_staff">
+    <li ng-repeat='faq in faqs' id='faq_{{faq.id}}' ng-hide="!faq.answer || faq.answer === ''">
+      Q: {{faq.question}}
+      <br>
+      A: {{faq.answer}}
+    </li>
+  </ul>
+
+  <ul ng-show="current_user && current_user.is_staff">
+    <li ng-repeat="faq in faqs | orderBy: '-score'" id='faq_{{faq.id}}'>
+      <form>
+        <span class="input-group">
+          <span class="input-group-addon">Q: ({{faq.score}})</span>
+          <input type="text" class="form-control" ng-model="faq.question">
+          <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="upVote(faq, $(this))">
+              <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;
+            </button>
+            <button class="btn btn-default" ng-click="downVote(faq)" ng-disabled="faq.score == 0">
+              <span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;
+            </button>
+            <button class="btn btn-default" ng-click="showQuestion(faq)" ng-hide="faq.approved">
+              <span class="glyphicon glyphicon-eye-open" style="color: green;"></span>&nbsp;
+            </button>
+            <button class="btn btn-default" ng-click="hideQuestion(faq)" ng-show="faq.approved">
+              <span class="glyphicon glyphicon-eye-close" style="color: red;"></span>&nbsp;
+            </button>
+            <button class="btn btn-default" ng-click="answerQuestion(faq)">
+              <span class="glyphicon glyphicon-floppy-disk" style="color: green;"></span>&nbsp;
+            </button>
+            <button class="btn btn-default" ng-click="removeQuestion(faq.id)">
+              <span class="glyphicon glyphicon-remove" style="color: red;"></span>&nbsp;
+            </button>
+          </span>
+        </span>
+
+        <span class="input-group" ng-show="faq.approved">
+          <span class="input-group-addon">A:</span>
+          <input type="text" class="form-control" placeholder="Answer..." ng-model="faq.answer">
+        </span>
+      </form>
+    </li>
+  </ul>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-push-1">
+      <form id='faq' ng-submit="submitQuestion()">
+        <input size="95%" ng-model="faq.question" placeholder="Have a question not answered abover? Enter it here..." />
+        <button type="submit">Ask</button>
+      </form>
+    </div>
+  </div>
+</div>

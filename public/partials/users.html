@@ -1,0 +1,23 @@
+<h2>Users</h2>
+<table class="users-list" ng-show="current_user.is_staff">
+  <tr>
+    <th></th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email Address</th>
+    <th>Last Login</th>
+  </tr>
+  <tr ng-repeat="user in users">
+    <td><span ng-show="user.is_staff">(Staff)</span></td>
+    <td>{{user.first_name}}</td>
+    <td>{{user.last_name}}</td>
+    <td ng-class="{'bad-email': !user.valid_email}">
+      {{user.email}}
+      <span ng-show="user.valid_email" class="glyphicon glyphicon-ok" style="color: green;"></span>
+      <a ng-hide="user.valid_email" ng-click="confirmEmail(user)">
+        <span class="glyphicon glyphicon-thumbs-up" style="color: black;"></span>
+      </a>
+    </td>
+    <td>{{user.last_login}}</td>
+  </tr>
+</ul>
