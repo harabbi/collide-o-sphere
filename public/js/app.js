@@ -68,6 +68,7 @@ angular.module('CollideOSphere', ['ngRoute','GoogleMap', '720kb.datepicker'])
       $('#login-button').button('reset');
     }).error(function(){
       alert('That email and password combination was invalid...');
+      $('#login-button').button('loading');
     })
   }
 
@@ -199,9 +200,4 @@ angular.module('CollideOSphere', ['ngRoute','GoogleMap', '720kb.datepicker'])
       alert(data);
     });
   }
-});
-
-$(function(){ $('nav li a').click(function(){
-    this.blur();
-  })
 });

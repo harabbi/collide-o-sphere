@@ -1,6 +1,5 @@
 <div class="container">
   <center>
-    <img src="/images/faq.jpg" />
     <h1>Pricing</h1>
     <table class="pricing">
       <tr><th></th><th>First Hour</th><th>Each Additional Hour</th></tr>
@@ -17,10 +16,10 @@
       we strongly suggest to stick with locations that we have worked with before.
     </p>
 
+    <hr class="featurette-divider" />
+
     <h1>Frequently Asked Questions</h1>
   </center>
-
-  <hr class="featurette-divider" />
 
   <ul class='faq' ng-hide="current_user && current_user.is_staff">
     <li ng-repeat='faq in faqs' id='faq_{{faq.id}}' ng-hide="!faq.answer || faq.answer === ''">

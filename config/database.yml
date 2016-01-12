@@ -2,9 +2,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: collideo_rails
-  database: collideo_prod_db
-  password: <%= ENV['MY_APP_DATABASE_PASSWORD'] %>
+  username: root
+  database: collide_o_sphere
 
 development:
   <<: *default
