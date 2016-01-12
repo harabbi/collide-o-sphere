@@ -95,3 +95,6 @@ table.pricing th {
 table.pricing td {
   min-width: 200px;
 }
+.social-media a {
+  margin-left: 25px;
+}

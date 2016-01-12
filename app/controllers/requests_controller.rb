@@ -6,6 +6,7 @@ class RequestsController < ApplicationController
   end
 
   def create
+    StaffMailer.booking_request_email(nil).deliver_later
     render json: 'This feature is under development!!!!', status: 406
   end
 end

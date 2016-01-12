@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   private
   def require_staff
-    unless User.find_by_id(session[:user_id]).is_staff?
+    unless User.find_by_id(session[:user_id]).try(:is_staff?)
       render json: nil, status: 403
     end
   end

@@ -151,7 +151,9 @@ angular.module('CollideOSphere', ['ngRoute','GoogleMap', '720kb.datepicker'])
   }
 
   $scope.answerQuestion = function(q) {
-    $http.patch('/faqs/' + q.id, q).error(function(data){
+    $http.patch('/faqs/' + q.id, q).success(function(){
+      alert('Saved...');
+    }).error(function(data){
       alert(data);
     });
   }

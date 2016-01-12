@@ -42,6 +42,12 @@ GEM
     bcrypt (3.1.10)
     builder (3.2.2)
     byebug (6.0.2)
+    daemons (1.2.2)
+    delayed_job (4.0.6)
+      activesupport (>= 3.0, < 5.0)
+    delayed_job_active_record (4.0.3)
+      activerecord (>= 3.0, < 5.0)
+      delayed_job (>= 3.0, < 4.1)
     erubis (2.7.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -104,6 +110,8 @@ DEPENDENCIES
   angular_rails_csrf
   bcrypt
   byebug
+  daemons
+  delayed_job_active_record
   mysql2 (~> 0.3.13)
   rails (= 4.2.4)
   spring
