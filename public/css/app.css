@@ -2,6 +2,13 @@
   cursor: pointer;
 }
 .center { text-align: center; }
+.loader {
+  height: 100%;
+  width: 100%;
+  background-image: url('/images/loading.gif');
+  background-size: cover;
+  background-position: center center;
+}
 fieldset {
   border: 1px red solid;
   background-color: #FFF0F0;
@@ -35,12 +42,19 @@ hr {
   border: solid #00A 3px;
   padding: 2px;
 }
-.carousel-inner .item {
-  height: 550px;
+.carousel.slide {
+  margin-bottom: -50px;
+}
+.carousel-caption {
+  bottom: 70px;
+}
+.carousel-indicators {
+  bottom: 70px;
 }
 .carousel-inner .item > div {
-  height: 550px;
+  height: 100%;
   width: 100%;
+  padding-bottom: 53px;
   background-size: cover;
   background-position: center center;
 }

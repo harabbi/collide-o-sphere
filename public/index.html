@@ -8,16 +8,9 @@
     <link rel="stylesheet" href="css/angular-datepicker.min.css">
     <link rel="stylesheet" href="css/app.css">
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-route.min.js"></script>
-    <script src="js/google-map.js"></script>
-    <script src="js/angular-datepicker.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/app.js"></script>
   </head>
   <body ng-controller="appCtrl">
+    <div ng-if="false" class="loader"></div>
     <div class="fluid-container">
       <div class="content">
         <div id="home" ng-include="'/partials/carousel.html'"></div>
@@ -25,11 +18,7 @@
 
         <div ng-include="'/partials/home.html'"></div>
 
-        <hr class="featurette-divider" />
-
         <div id="faq" ng-controller="faqCtrl" ng-include="'/partials/faq.html'"></div>
-
-        <hr class="featurette-divider" />
 
         <div id="book" ng-controller="bookCtrl" ng-include="'/partials/book.html'"></div>
       </div>
@@ -57,5 +46,14 @@
         </form>
       </div>
     </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/angular-datepicker.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
