@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       user.update(last_login: Time.now) if (Time.now.to_i - user.last_login.to_i) > 1.hour
       render json: user.to_json
     else
-      render json: nil, status: 401
+      render json: nil
     end
   end
 
