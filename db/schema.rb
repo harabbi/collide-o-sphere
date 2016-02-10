@@ -14,6 +14,16 @@
 ActiveRecord::Schema.define(version: 20151223221921) do
 
   create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id",          limit: 4
+    t.string   "status",           limit: 255
+    t.datetime "rental_date"
+    t.string   "rental_size",      limit: 255
+    t.integer  "num_guests",       limit: 4
+    t.string   "event_type",       limit: 255
+    t.string   "event_type_other", limit: 255
+    t.integer  "place_id",         limit: 4
+    t.string   "place_other",      limit: 255
+    t.text     "comments",         limit: 65535
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -57,6 +67,7 @@ ActiveRecord::Schema.define(version: 20151223221921) do
     t.boolean  "valid_email",                 default: false
     t.boolean  "is_staff",                    default: false
     t.datetime "last_login"
+    t.string   "phone_number",    limit: 255
   end
 
 end

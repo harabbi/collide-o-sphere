@@ -11,7 +11,7 @@
 }
 fieldset {
   border: 1px red solid;
-  background-color: #FFF0F0;
+  background-color: #DEBEBB;
   border-radius: 20px;
   color: #000;
   padding: 15px;
@@ -22,6 +22,17 @@ hr {
 .navbar {
   border-radius: 0;
   z-index: 1500;
+}
+.bubble {
+  padding-top: 200px;
+  position: absolute;
+  width: 300px;
+}
+.left.bubble {
+  left: 30px;
+}
+.right.bubble {
+  right: 30px;
 }
 .content-divider {
   border-bottom: 1px red solid;
@@ -57,6 +68,9 @@ hr {
   padding-bottom: 53px;
   background-size: cover;
   background-position: center center;
+}
+#intro {
+  margin: 40px 0;
 }
 #map {
   border: solid red 3px;

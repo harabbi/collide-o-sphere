@@ -30,55 +30,76 @@
     </div>
     <div class="col-sm-6">
       <div class="fluid-container">
-        <form class="form-horizontal" ng-submit="submitRequest()">
+        <form class="form-horizontal" ng-submit="submitBooking()">
           <fieldset>
             <div class="row">
               <div class="col-sm-12"><h4>POC for Rental:</h4></div>
-              <div class="col-sm-5">
-                <input ng-model="form.first_name" class="form-control" placeholder='First Name'/>
+              <div class="col-sm-6">
+                <input ng-model="bookRequest.first_name" class="form-control" placeholder='First Name'/>
               </div>
-              <div class="col-sm-5">
-                <input ng-model="form.last_name" class="form-control" placeholder='Last Name'/>
+              <div class="col-sm-6">
+                <input ng-model="bookRequest.last_name" class="form-control" placeholder='Last Name'/>
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-5">
-                <input ng-model="form.email" class="form-control" placeholder='you@email.com'/>
+              <div class="col-sm-6">
+                <input ng-model="bookRequest.email" class="form-control" placeholder='you@email.com'/>
               </div>
-              <div class="col-sm-5">
-                <input ng-model="form.phone" class="form-control" placeholder='123-123-1234'/>
+              <div class="col-sm-6">
+                <input ng-model="bookRequest.phone" class="form-control" placeholder='123-123-1234'/>
               </div>
             </div>
 
             <div class="row">
               <div class="col-sm-12"><h4>Rental Info:</h4></div>
-              <div class="col-sm-5">
+              <div class="col-sm-6">
                 <datepicker date-format="mediumDate">
-                  <input ng-model="form.rental_date" class="form-control" type="text" placeholder="Choose a date"/>
+                  <input ng-model="bookRequest.rental_date" class="form-control" type="text" placeholder="Choose a date"/>
                 </datepicker>
               </div>
-              <div class="col-sm-5">
-                <input ng-model="form.rental_time" class="form-control" placeholder="What time?"/>
+              <div class="col-sm-6">
+                <select ng-model="bookRequest.rental_time" class="form-control" width="50%">
+                  <option value="" disabled selected>What Time?</option>
+                  <option>10am</option>
+                  <option>11am</option>
+                  <option>12pm</option>
+                  <option>1pm</option>
+                  <option>2pm</option>
+                  <option>3pm</option>
+                  <option>4pm</option>
+                  <option>5pm</option>
+                  <option>6pm</option>
+                  <option>7pm</option>
+                  <option>8pm</option>
+                  <option>9pm</option>
+                  <option>10pm</option>
+                </select>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-sm-5">
-                <select ng-model="form.rental_size" class="form-control">
+              <div class="col-sm-6">
+                <select ng-model="bookRequest.rental_size" class="form-control">
                   <option selected disabled value="">Rental Size</option>
                   <option>3v3 (6 Spheres)</option>
                   <option>4v4 (8 Spheres)</option>
                   <option>5v5 (10 Spheres)</option>
                 </select>
               </div>
-              <div class="col-sm-5">
-                <input ng-model="form.num_guests" class="form-control" placeholder="Total guests" size="10"/>
+              <div class="col-sm-6">
+                <input ng-model="bookRequest.num_guests" class="form-control" placeholder="# of guests (should be more)" />
               </div>
             </div>
 
             <div class="row">
-              <div class="col-sm-5">
-                <select ng-model="form.event_type" class="form-control" width="50%">
+              <div class="col-sm-12">
+                <input class="form-control" placeholder="Where are we doing this?" ng-model="bookRequest.place_other"/>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <select ng-model="bookRequest.event_type" class="form-control" width="50%">
                   <option value="" disabled selected>Event Type</option>
                   <option>Corporate/Team Building</option>
                   <option>Sports Team Gather</option>
@@ -88,28 +109,15 @@
                   <option>Other</option>
                 </select>
               </div>
-              <div class="col-sm-5">
-                <input ng-show="form.event_type=='Other'" class="form-control" placeholder="Ok, what?" ng-model="form.event_type_other"/>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-5">
-                <select ng-model="form.place_id" class="form-control">
-                  <option value="" disabled selected>Select a location</option>
-                  <option ng-repeat="place in places" val="{{place.id}}">{{place.name}}</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="col-sm-5">
-                <input ng-show="form.place_id=='Other'" class="form-control" placeholder="Ok, where?" ng-model="form.place_other"/>
+              <div class="col-sm-6">
+                <input ng-show="bookRequest.event_type=='Other'" class="form-control" placeholder="Ok, what?" ng-model="bookRequest.event_type_other"/>
               </div>
             </div>
 
             <div class="row">
               <div class="col-sm-12"><h4>Comments/Special Requests/Other Info:</h4></div>
               <div class="col-sm-12">
-                <textarea type="textarea" ng-model="comments" class="form-control"/>
+                <textarea type="textarea" ng-model="bookRequest.comments" class="form-control"/>
               </div>
             </div>
 

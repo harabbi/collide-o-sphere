@@ -1,34 +1,4 @@
-angular.module('CollideOSphere', ['ngRoute','GoogleMap', '720kb.datepicker'])
-.config(['$routeProvider',
-  function($routeProvider) { $routeProvider.
-    when('/home', {
-      templateUrl: 'partials/home.html',
-    }).
-    when('/book', {
-      templateUrl: 'partials/book.html',
-      controller: 'bookCtrl'
-    }).
-    when('/rental-requests', {
-      templateUrl: 'partials/requests.html',
-      controller: 'requestsCtrl'
-    }).
-    when('/faq', {
-      templateUrl: 'partials/faq.html',
-      controller: 'faqCtrl'
-    }).
-    when('/locations', {
-      templateUrl: 'partials/locations.html',
-      controller: 'mapCtrl'
-    }).
-    when('/users', {
-      templateUrl: 'partials/users.html',
-      controller: 'userCtrl'
-    }).
-    otherwise({
-      redirectTo: '/home'
-    });
-  }
-])
+angular.module('CollideOSphere', ['720kb.datepicker'])
 
 .directive('formAutofillFix', function() {
   return function(scope, elem, attrs) {
@@ -50,6 +20,7 @@ angular.module('CollideOSphere', ['ngRoute','GoogleMap', '720kb.datepicker'])
 
 .controller('appCtrl', function($scope, $http, $location) {
   $scope.showLogin = false;
+  $scope.root = $('html, body');
 
   $http.post('/users/login').success(function(data) {
     $scope.current_user = data;
@@ -57,6 +28,18 @@ angular.module('CollideOSphere', ['ngRoute','GoogleMap', '720kb.datepicker'])
 
   $scope.isActive = function(viewLocation) {
     return viewLocation === $location.path();
+  };
+
+
+  $scope.scrollTo = function(link, href){
+    $(link).blur();
+    console.log(href);
+
+    $scope.root.animate(
+      {scrollTop: $(href).offset().top - 50},
+      500,
+      function (){ window.location.hash = href; }
+    );
   };
 
   $scope.logIn = function() {
@@ -80,13 +63,15 @@ angular.module('CollideOSphere', ['ngRoute','GoogleMap', '720kb.datepicker'])
 })
 
 .controller('bookCtrl', function($scope, $http) {
+  $scope.bookRequest = {};
+
   $http.get('/places?pending=false').success(function(data){
     $scope.places = data;
   });
 
-  $scope.submitRequest = function() {
-    $http.post('/requests', {rental: $scope.form}).success(function() {
-      alert('You request has been submitted. Look for an email from us soon!');
+  $scope.submitBooking = function() {
+    $http.post('/requests', $scope.bookRequest).success(function(data) {
+      alert(data);
     }).error(function(data) {
       alert(data);
     });
@@ -97,33 +82,6 @@ angular.module('CollideOSphere', ['ngRoute','GoogleMap', '720kb.datepicker'])
   $http.get('/requests').success(function(data){
     $scope.requests = data;
   });
-})
-
-.controller('mapCtrl', function($scope, $http, $timeout, GoogleMap) {
-  $http.get('/places').success(function(data){
-    $scope.places = data;
-    GoogleMap.load($scope.places);
-    $scope.focusPac = function() {
-      $timeout(function(){
-        $('#pac-input').focus();
-      })
-    }
-  });
-
-  $scope.removePlace = function(place) {
-    $http.delete('/places/' + place.id).success(function(){
-      $('#' + place.place_id).hide();
-    }).error(function(data){
-      alert(data);
-    });
-  }
-
-  $scope.confirmPlace = function(place) {
-    place.pending = false;
-    $http.patch('/places/' + place.id, {place: {pending: false}}).error(function(data){
-      alert(data);
-    });
-  }
 })
 
 .controller('faqCtrl', function($scope, $http) {
