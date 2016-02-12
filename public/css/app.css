@@ -22,6 +22,7 @@ hr {
 .navbar {
   border-radius: 0;
   z-index: 1500;
+  font-size: 130%;
 }
 .bubble {
   padding-top: 200px;
