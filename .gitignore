@@ -3,5 +3,5 @@ log
 tmp
 spring
 tmp.log
-config/database.yml
+config/database.yml*
 config/secrets.yml

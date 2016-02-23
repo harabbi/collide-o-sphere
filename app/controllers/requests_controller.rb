@@ -6,27 +6,35 @@ class RequestsController < ApplicationController
   end
 
   def create
-    user = User.find_or_create_by(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone])
+    params[:phone] = ActionController::Base.helpers.number_to_phone(params[:phone], area_code: true)
+    user = User.find_or_create_by(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
+    user.update_attribute(:phone_number, params[:phone]) if user.phone_number.blank? or user.phone_number != params[:phone]
 
-    booking = Booking.create(
-      user: user,
-      status: 'NEW',
-      rental_date: Time.parse(params['rental_date'] + params['rental_time']),
-      rental_size: params['rental_size'],
-      num_guests: params['num_guests'],
-      event_type: params['event_type'],
-      event_type_other: params['event_type'],
-      place_other: params['place_other'],
-      comments: params['comments']
-    )
+    begin
+      booking = Booking.create(
+        user: user,
+        status: 'NEW',
+        rental_date: Time.parse(params['rental_date'].to_s + params['rental_time'].to_s),
+        rental_size: params['rental_size'],
+        num_guests: params['num_guests'],
+        event_type: params['event_type'],
+        event_type_other: params['event_type'],
+        place_other: params['place_other'],
+        comments: params['comments']
+      )
 
-    if booking.persisted?
-      #TODO StaffMailer.booking_request_email(nil).deliver_later
-      render text: 'Your request has been submitted. Look for an email from us soon!'
+      if booking.persisted?
+        StaffMailer.booking_request_email(booking.id).deliver_later
+        render text: 'Your request has been submitted. Look for an email from us soon!'
 
-    else
-      render text: booking.errors.full_messages.join(', '), status: 406
+      else
+        render text: booking.errors.full_messages.join(', '), status: 406
+      end
+
+    rescue => exc
+      render text: "Booking information incomplete: " + exc.message, status: 406
     end
+
   end
 
   def destroy
