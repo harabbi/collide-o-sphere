@@ -19,7 +19,7 @@
       <div class="content">
         <div id="home" ng-include="'/partials/carousel.html'"></div>
 
-        <nav class="navbar navbar-default sticky">
+        <nav class="navbar navbar-default">
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -47,10 +47,13 @@
               </div>
             </div><!--/.nav-collapse -->
           </div>
-
-          <img src="/images/logo-left.png" class="left bubble" />
-          <img src="/images/logo-right.png" class="right bubble" />
         </nav>
+
+        <div id="side-bubbles">
+          <img src="/images/logo-left.png" class="left bubble" />
+          <div class="container"></div>
+          <img src="/images/logo-right.png" class="right bubble" />
+        </div>
 
         <div class="container marketing">
           <div id="intro">
@@ -188,7 +191,8 @@
 
     <script>
       $(document).ready(function(){
-        $(".sticky").sticky({topSpacing:0});
+        $("nav").sticky();
+        $("#side-bubbles").sticky({topSpacing:100});
       });
     </script>
   </body>
