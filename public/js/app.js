@@ -85,6 +85,8 @@ angular.module('CollideOSphere', ['720kb.datepicker'])
 })
 
 .controller('faqCtrl', function($scope, $http) {
+  $scope.faq = {};
+
   $http.get('/faqs').success(function(data){
     $scope.faqs = data;
   });
