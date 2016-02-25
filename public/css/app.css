@@ -25,15 +25,16 @@ hr {
   font-size: 130%;
 }
 .bubble {
-  padding-top: 100px;
   position: absolute;
   width: 300px;
   opacity: 0.3;
 }
 .left.bubble {
+  padding-top: 100px;
   left: 10px;
 }
 .right.bubble {
+  padding-top: 500px;
   right: 10px;
 }
 .content-divider {

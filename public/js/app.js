@@ -71,6 +71,7 @@ angular.module('CollideOSphere', ['720kb.datepicker'])
 
   $scope.submitBooking = function() {
     $http.post('/requests', $scope.bookRequest).success(function(data) {
+      $('#requestForm')[0].reset();
       alert(data);
     }).error(function(data) {
       alert(data);

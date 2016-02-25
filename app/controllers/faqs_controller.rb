@@ -10,6 +10,7 @@ class FaqsController < ApplicationController
   def create
     faq = Faq.new(params.permit(:question))
     if faq.save
+      StaffMailer.faq_added_email(faq.id).deliver_later
       render json: faq.to_json
     else
       render json: faq.errors.full_messages.to_json, status: 406
