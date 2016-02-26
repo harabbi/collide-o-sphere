@@ -9,6 +9,12 @@
   background-size: cover;
   background-position: center center;
 }
+.content {
+  background-color: gray;
+}
+.container.marketing {
+  background-color: white;
+}
 fieldset {
   border: 1px red solid;
   background-color: #DEBEBB;
@@ -26,15 +32,15 @@ hr {
 }
 .bubble {
   position: absolute;
-  width: 300px;
+  width: 270px;
   opacity: 0.3;
 }
 .left.bubble {
-  padding-top: 100px;
+  padding-top: 80px;
   left: 10px;
 }
 .right.bubble {
-  padding-top: 500px;
+  padding-top: 390px;
   right: 10px;
 }
 .content-divider {
@@ -64,6 +70,9 @@ hr {
 }
 .carousel-indicators {
   bottom: 70px;
+}
+.carousel-inner, .carousel-inner  > div {
+  height: 100%;
 }
 .carousel-inner .item > div {
   height: 100%;

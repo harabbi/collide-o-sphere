@@ -1,134 +1,132 @@
-<div class="container">
-    <div class="col-sm-12">
-      <h1>Are you ready to host the best time ever?</h1>
-    </div>
+<div class="col-sm-12">
+  <h1>Are you ready to host the best time ever?</h1>
+</div>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <p>
-        Please fill out the information below and a Collide-O-Sphere representative
-        will contact you soon. <b>You do not have to have all the information, and
-        nothing has to be concrete. Fill this in the best you can and we'll confirm
-        the details later.</b>
-      </p>
-      <i><ul>
-        <li>Rental Size indicates the number of Spheres that will be available for play.
-          You may have as many guests as you like, but only those guests that are in a Sphere
-          may participate in an Collide-O-Sphere activity.
-        </li>
-        <li>Rental dates are subject to the availability of Collide-O-Sphere staff.</li>
-        <li>Rentals require a Collide-O-Sphere staff member to be present at all times.</li>
-        <li>Your rental host will arrive 30 minutes before the rental to inflate all equipment and will
-          need an additional 30 minutes after your rental time to clean and deflate equipment.</li>
-        <li>Gratuity for your rental host is entirely up to your discretion.</li>
-        <li>Payment will be processed upon arrival (via
-          <a href="https://squareup.com/about">Square</a> reader) unless renter has made payment in advance.</li>
-        <li>All participants must be 18+ and may not be under the influence of alcohol during a rental.</li>
-        <li>All participants must sign a liability waiver to participate in an event.</li>
-        <li>Rentals canceled within 24 hours are subject to a 50% cancelation fee.</li>
-      </ul></i>
-    </div>
-    <div class="col-sm-6">
-      <div class="fluid-container">
-        <form id="requestForm" class="form-horizontal" ng-submit="submitBooking()">
-          <fieldset>
-            <div class="row">
-              <div class="col-sm-12"><h4>POC for Rental:</h4></div>
-              <div class="col-sm-6">
-                <input ng-model="bookRequest.first_name" class="form-control" placeholder='First Name'/>
-              </div>
-              <div class="col-sm-6">
-                <input ng-model="bookRequest.last_name" class="form-control" placeholder='Last Name'/>
-              </div>
+<div class="row">
+  <div class="col-sm-6">
+    <p>
+      Please fill out the information below and a Collide-O-Sphere representative
+      will contact you soon. <b>You do not have to have all the information, and
+      nothing has to be concrete. Fill this in the best you can and we'll confirm
+      the details later.</b>
+    </p>
+    <i><ul>
+      <li>Rental Size indicates the number of Spheres that will be available for play.
+        You may have as many guests as you like, but only those guests that are in a Sphere
+        may participate in an Collide-O-Sphere activity.
+      </li>
+      <li>Rental dates are subject to the availability of Collide-O-Sphere staff.</li>
+      <li>Rentals require a Collide-O-Sphere staff member to be present at all times.</li>
+      <li>Your rental host will arrive 30 minutes before the rental to inflate all equipment and will
+        need an additional 30 minutes after your rental time to clean and deflate equipment.</li>
+      <li>Gratuity for your rental host is entirely up to your discretion.</li>
+      <li>Payment will be processed upon arrival (via
+        <a href="https://squareup.com/about">Square</a> reader) unless renter has made payment in advance.</li>
+      <li>All participants must be 18+ and may not be under the influence of alcohol during a rental.</li>
+      <li>All participants must sign a liability waiver to participate in an event.</li>
+      <li>Rentals canceled within 24 hours are subject to a 50% cancelation fee.</li>
+    </ul></i>
+  </div>
+  <div class="col-sm-6">
+    <div class="fluid-container">
+      <form id="requestForm" class="form-horizontal" ng-submit="submitBooking()">
+        <fieldset>
+          <div class="row">
+            <div class="col-sm-12"><h4>POC for Rental:</h4></div>
+            <div class="col-sm-6">
+              <input ng-model="bookRequest.first_name" class="form-control" placeholder='First Name'/>
             </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <input ng-model="bookRequest.email" class="form-control" placeholder='you@email.com'/>
-              </div>
-              <div class="col-sm-6">
-                <input ng-model="bookRequest.phone" class="form-control" placeholder='123-123-1234'/>
-              </div>
+            <div class="col-sm-6">
+              <input ng-model="bookRequest.last_name" class="form-control" placeholder='Last Name'/>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <input ng-model="bookRequest.email" class="form-control" placeholder='you@email.com'/>
+            </div>
+            <div class="col-sm-6">
+              <input ng-model="bookRequest.phone" class="form-control" placeholder='123-123-1234'/>
+            </div>
+          </div>
 
-            <div class="row">
-              <div class="col-sm-12"><h4>Rental Info:</h4></div>
-              <div class="col-sm-6">
-                <datepicker date-format="mediumDate">
-                  <input ng-model="bookRequest.rental_date" class="form-control" type="text" placeholder="Choose a date"/>
-                </datepicker>
-              </div>
-              <div class="col-sm-6">
-                <select ng-model="bookRequest.rental_time" class="form-control" width="50%">
-                  <option value="" disabled selected>What Time?</option>
-                  <option>10am</option>
-                  <option>11am</option>
-                  <option>12pm</option>
-                  <option>1pm</option>
-                  <option>2pm</option>
-                  <option>3pm</option>
-                  <option>4pm</option>
-                  <option>5pm</option>
-                  <option>6pm</option>
-                  <option>7pm</option>
-                  <option>8pm</option>
-                  <option>9pm</option>
-                  <option>10pm</option>
-                </select>
-              </div>
+          <div class="row">
+            <div class="col-sm-12"><h4>Rental Info:</h4></div>
+            <div class="col-sm-6">
+              <datepicker date-format="mediumDate">
+                <input ng-model="bookRequest.rental_date" class="form-control" type="text" placeholder="Choose a date"/>
+              </datepicker>
             </div>
+            <div class="col-sm-6">
+              <select ng-model="bookRequest.rental_time" class="form-control" width="50%">
+                <option value="" disabled selected>What Time?</option>
+                <option>10am</option>
+                <option>11am</option>
+                <option>12pm</option>
+                <option>1pm</option>
+                <option>2pm</option>
+                <option>3pm</option>
+                <option>4pm</option>
+                <option>5pm</option>
+                <option>6pm</option>
+                <option>7pm</option>
+                <option>8pm</option>
+                <option>9pm</option>
+                <option>10pm</option>
+              </select>
+            </div>
+          </div>
 
-            <div class="row">
-              <div class="col-sm-6">
-                <select ng-model="bookRequest.rental_size" class="form-control">
-                  <option selected disabled value="">Rental Size</option>
-                  <option>3v3 (6 Spheres)</option>
-                  <option>4v4 (8 Spheres)</option>
-                  <option>5v5 (10 Spheres)</option>
-                </select>
-              </div>
-              <div class="col-sm-6">
-                <input ng-model="bookRequest.num_guests" class="form-control" placeholder="# of guests (should be more)" />
-              </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <select ng-model="bookRequest.rental_size" class="form-control">
+                <option selected disabled value="">Rental Size</option>
+                <option>3v3 (6 Spheres)</option>
+                <option>4v4 (8 Spheres)</option>
+                <option>5v5 (10 Spheres)</option>
+              </select>
             </div>
+            <div class="col-sm-6">
+              <input ng-model="bookRequest.num_guests" class="form-control" placeholder="# of guests (should be more)" />
+            </div>
+          </div>
 
-            <div class="row">
-              <div class="col-sm-12">
-                <input class="form-control" placeholder="Where are we doing this?" ng-model="bookRequest.place_other"/>
-              </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <input class="form-control" placeholder="Where are we doing this?" ng-model="bookRequest.place_other"/>
             </div>
+          </div>
 
-            <div class="row">
-              <div class="col-sm-6">
-                <select ng-model="bookRequest.event_type" class="form-control" width="50%">
-                  <option value="" disabled selected>Event Type</option>
-                  <option>Corporate/Team Building</option>
-                  <option>Sports Team Gather</option>
-                  <option>Birthday Party</option>
-                  <option>Bachelor(ette) Party</option>
-                  <option>Just for the hell of it!</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="col-sm-6">
-                <input ng-show="bookRequest.event_type=='Other'" class="form-control" placeholder="Ok, what?" ng-model="bookRequest.event_type_other"/>
-              </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <select ng-model="bookRequest.event_type" class="form-control" width="50%">
+                <option value="" disabled selected>Event Type</option>
+                <option>Corporate/Team Building</option>
+                <option>Sports Team Gather</option>
+                <option>Birthday Party</option>
+                <option>Bachelor(ette) Party</option>
+                <option>Just for the hell of it!</option>
+                <option>Other</option>
+              </select>
             </div>
+            <div class="col-sm-6">
+              <input ng-show="bookRequest.event_type=='Other'" class="form-control" placeholder="Ok, what?" ng-model="bookRequest.event_type_other"/>
+            </div>
+          </div>
 
-            <div class="row">
-              <div class="col-sm-12"><h4>Comments/Special Requests/Other Info:</h4></div>
-              <div class="col-sm-12">
-                <textarea type="textarea" ng-model="bookRequest.comments" class="form-control"/>
-              </div>
+          <div class="row">
+            <div class="col-sm-12"><h4>Comments/Special Requests/Other Info:</h4></div>
+            <div class="col-sm-12">
+              <textarea type="textarea" ng-model="bookRequest.comments" class="form-control"/>
             </div>
+          </div>
 
-            <div class="row">
-              <div class="col-sm-12 center">
-                <button type="submit" class="btn btn-primary btn-lg">Ok... Let's Do This!</button>
-              </div>
+          <div class="row">
+            <div class="col-sm-12 center">
+              <button type="submit" class="btn btn-primary btn-lg">Ok... Let's Do This!</button>
             </div>
-          </fieldset>
-        </form>
-      </div>
+          </div>
+        </fieldset>
+      </form>
     </div>
   </div>
 </div>

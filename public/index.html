@@ -151,34 +151,35 @@
           </div>
 
           <hr class="featurette-divider" />
-        </div>
 
-        <div id="faq" ng-controller="faqCtrl" ng-include="'/partials/faq.html'"></div>
+          <div id="faq" ng-controller="faqCtrl" ng-include="'/partials/faq.html'"></div>
 
-        <div id="book" ng-controller="bookCtrl" ng-include="'/partials/book.html'"></div>
-      </div>
+          <div id="book" ng-controller="bookCtrl" ng-include="'/partials/book.html'"></div>
 
-      <div class="col-md-12 footer">
-        Collide-O-Sphere is pretty awesome. If you want to <a href="mailto:staff@collide-o-sphere.com">contact us</a>, you probably should...
-        <ul class="nav navbar-nav navbar-right" ng-show="current_user">
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{current_user.first_name}} <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li ng-show="current_user.is_staff"><a href="#/users">User List</a></li>
-              <li ng-show="current_user.is_staff"><a href="#/rental-requests">Rental Requests</a></li>
-              <li ng-show="current_user.is_staff" role="separator" class="divider"></li>
-              <li><a ng-click="logOut()" >Sign Out</a></li>
+          <div class="col-md-12 footer">
+            Collide-O-Sphere is pretty awesome. If you want to <a href="mailto:staff@collide-o-sphere.com">contact us</a>, you probably should...
+            <ul class="nav navbar-nav navbar-right" ng-show="current_user">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{current_user.first_name}} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ng-show="current_user.is_staff"><a href="#/users">User List</a></li>
+                  <li ng-show="current_user.is_staff"><a href="#/rental-requests">Rental Requests</a></li>
+                  <li ng-show="current_user.is_staff" role="separator" class="divider"></li>
+                  <li><a ng-click="logOut()" >Sign Out</a></li>
+                </ul>
+              </li>
             </ul>
-          </li>
-        </ul>
-        <a class="navbar-right" ng-click="showLogin = true" ng-hide="showLogin || current_user">Staff</a>
-        <form class="navbar-form navbar-right" role="login" ng-show="showLogin" ng-submit="logIn(this)" form-auto-fill-fix>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="email@domain.com" ng-model="user.email">
-            <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
+            <a class="navbar-right" ng-click="showLogin = true" ng-hide="showLogin || current_user">Staff Login</a>
+            <form class="navbar-form navbar-right" role="login" ng-show="showLogin" ng-submit="logIn(this)" form-auto-fill-fix>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="email@domain.com" ng-model="user.email">
+                <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
+              </div>
+              <button type="submit" class="btn btn-default" id="login-button">Submit</button>
+            </form>
           </div>
-          <button type="submit" class="btn btn-default" id="login-button">Submit</button>
-        </form>
+
+        </div>
       </div>
     </div>
 
