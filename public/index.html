@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/angular-datepicker.min.css">
     <link rel="stylesheet" href="css/app.css">
 
+    <base href="/">
   </head>
   <body ng-controller="appCtrl">
     <div ng-if="false" class="loader"></div>
@@ -66,8 +67,8 @@
               <li class="dropup">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{current_user.first_name}} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li ng-show="current_user.is_staff"><a href="#/users">User List</a></li>
-                  <li ng-show="current_user.is_staff"><a href="#/rental-requests">Rental Requests</a></li>
+                  <li ng-show="current_user.is_staff"><a href="/users">User List</a></li>
+                  <li ng-show="current_user.is_staff"><a href="/requests">Rental Requests</a></li>
                   <li ng-show="current_user.is_staff" role="separator" class="divider"></li>
                   <li><a ng-click="logOut()" >Sign Out</a></li>
                 </ul>

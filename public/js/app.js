@@ -17,7 +17,8 @@ angular.module('CollideOSphere', ['ngRoute','720kb.datepicker'])
     otherwise({
       redirectTo: '/'
     });
-//    $locationProvider.html5Mode(true);
+
+    $locationProvider.html5Mode(true);
   }
 ])
 
@@ -54,13 +55,14 @@ angular.module('CollideOSphere', ['ngRoute','720kb.datepicker'])
 
   $scope.scrollTo = function(link, href){
     $(link).blur();
-    console.log(href);
 
     $scope.root.animate(
       {scrollTop: $(href).offset().top - 50},
       500,
-      function (){ window.location.hash = href; }
+      function() { history.pushState(null, null, href) }
     );
+
+    return false;
   };
 
   $scope.logIn = function() {
