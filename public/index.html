@@ -3,6 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Collide O Sphere is Maryland's newest Bubble Sport event company and is ready and eager to help you host a SMASHING fun time!">
+    <meta name="google-site-verification" content="9M67-i0a_5tIQD0OG6B1jqSrN4eDYT2KhMeYYn_iuzY" />
 
     <title>Collide O Sphere - Smash into Fun!</title>
 
@@ -29,7 +30,7 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="#/home">
+              <a class="navbar-brand" href="/index">
                 <img src="/images/CoS_logo.png" style="height: 60px; margin-top: -20px; float: left;" />
                 Collide-O-Sphere
               </a>
@@ -56,110 +57,13 @@
         </div>
 
         <div class="container marketing">
-          <div id="intro">
-            <h1>Collide O Sphere</h1>
-            <p class="lead">is Maryland's newest and most original Bubble Sport host!</p>
-            <p>
-              Our goal is provide you and your guests the craziest, most fun event possible
-              while keeping everyone safe. We are based out of Howard County but will travel
-              reasonable distances to host your next Bubble Sports event!
-            </p>
-          </div>
-
-          <hr class="featurette-divider">
-
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading">
-                Are you ready for this?
-                <span class="text-muted">You'd better be!</span>
-              </h2>
-              <p class="lead">
-                Call it Bubble Soccer, call it Sphere Smash, call it Inflate-gate... Whatever you call it, get ready to Dive Into
-                a Great Time! Collide-O-Sphere is the hottest craze, and we are ready to help you host the event your friends will
-                rave about for months to come! It's easy... Fill out a <a href="#/book">booking request</a> and we'll confirm your
-                event. Then we show up on the day and handle everything. You and your friends have a great time and then we clean
-                up. Don't let someone else beat you to this... <a href="#/book">BOOK NOW!</a>
-              </p>
-            </div>
-            <div class="col-md-5">
-              <iframe width="100%" height="300px" alt="jump into collide o sphere and play some bubble soccer in maryland"src="https://www.youtube.com/embed/gLv8LCLApEw" frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
-
-          <hr class="featurette-divider">
-
-          <div class="row featurette">
-            <div class="col-md-7 col-md-push-5">
-              <h2 class="featurette-heading">
-                Ever wanted to knock your boss over?
-                <span class="text-muted">This could be your next corporate event.</span>
-              </h2>
-              <p class="lead">
-                Your boss will be elated to get bowled over and you'll be
-                the subject of praise around the watercooler... you might even get that cute
-                new intern's phone number after the office finds out that you're responsible
-                for a Collide-O-Sphere outing! Don't let that creep from accounting claim
-                this for himself... Book an Event for your company and claim the corporate
-                celebrate status you deserve!
-              </p>
-            </div>
-            <div class="col-md-5 col-md-pull-7">
-              <iframe width="100%" height="300px" alt="collide into your friends at full speed in our spheres in full contact bubble soccer" src="https://www.youtube.com/embed/29NoYJAkyys" frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
-
-          <hr class="featurette-divider">
-
-          <div class="row featurette center">
-            <div class="col-sm-4">
-              <img class="img-circle" width="140" height="140" alt="collide o sphere can be played inside" src="/images/indoor.jpg">
-              <h2>Play Inside</h2>
-              <p>Indoor Sports Complexes are the ideal location to host a weather safe event!</p>
-            </div>
-            <div class="col-sm-4">
-              <img class="img-circle" width="140" height="140" alt="collide o sphere is great in the snow" src="/images/snowSoccer.jpg">
-              <h2>Play in the Snow</h2>
-              <p>Our Spheres are made of cold resistent TPU, which means we can play outdoors and in the snow!</p>
-            </div>
-            <div class="col-sm-4">
-              <img class="img-circle" width="140" height="140" alt="collide o sphere will bring bubble soccer to your house in maryland" src="/images/big-backyard.jpg">
-              <h2>Play at your house</h2>
-              <p>If you have enough space, we'll come to you!</p>
-            </div>
-          </div>
-
-          <hr class="featurette-divider">
-
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading">
-                Game of Globes
-                <span class="text-muted">This is not your father's capture-the-flag.</span>
-              </h2>
-              <p class="lead">
-                Get the other team's Globe (which is an 8 foot tall beach wall) in your
-                goal area, but don't let the other team grab yours! Games are timed and
-                the team that captures the other team's globe the most times wins. Game of
-                Globes is the featured game at Collide-O-Sphere and is a sure fire way to
-                have a great time in an original way!
-              </p>
-            </div>
-            <div class="col-md-5">
-              <img style="height: 300px; width: 100%;" class="featurette-image" alt="game of globes instructions for collide o spheres favorite game" src="/images/gameOfGlobes.gif">
-            </div>
-          </div>
-
-          <hr class="featurette-divider" />
-
-          <div id="faq" ng-controller="faqCtrl" ng-include="'/partials/faq.html'"></div>
-
-          <div id="book" ng-controller="bookCtrl" ng-include="'/partials/book.html'"></div>
+          <div ng-view style="min-height: 600px;">
+          </div> <!-- end of ng-view -->
 
           <div class="col-md-12 footer">
             Collide-O-Sphere is pretty awesome. If you want to <a href="mailto:staff@collide-o-sphere.com">contact us</a>, you probably should...
             <ul class="nav navbar-nav navbar-right" ng-show="current_user">
-              <li class="dropdown">
+              <li class="dropup">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{current_user.first_name}} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li ng-show="current_user.is_staff"><a href="#/users">User List</a></li>
@@ -187,6 +91,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-datepicker.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
     <script src="js/app.js"></script>
 

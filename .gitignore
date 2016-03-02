@@ -5,3 +5,4 @@ spring
 tmp.log
 config/database.yml*
 config/secrets.yml
+public/google*

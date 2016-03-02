@@ -7,7 +7,7 @@
     <th>Email Address</th>
     <th>Last Login</th>
   </tr>
-  <tr ng-repeat="user in users">
+  <tr ng-repeat="user in users" id="user_{{user.id}}">
     <td><span ng-show="user.is_staff">(Staff)</span></td>
     <td>{{user.first_name}}</td>
     <td>{{user.last_name}}</td>
@@ -16,6 +16,9 @@
       <span ng-show="user.valid_email" class="glyphicon glyphicon-ok" style="color: green;"></span>
       <a ng-hide="user.valid_email" ng-click="confirmEmail(user)">
         <span class="glyphicon glyphicon-thumbs-up" style="color: black;"></span>
+      </a>
+      <a ng-hide="user.is_staff" ng-click="deleteUser(user)">
+        <span class="glyphicon glyphicon-remove" style="color: black;"></span>
       </a>
     </td>
     <td>{{user.last_login}}</td>

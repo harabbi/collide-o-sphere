@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   before_filter :require_staff, except: [:create]
 
   def index
-    render json: nil
+    render json: Booking.all.to_json(include: :user)
   end
 
   def create

@@ -1,4 +1,25 @@
-angular.module('CollideOSphere', ['720kb.datepicker'])
+angular.module('CollideOSphere', ['ngRoute','720kb.datepicker'])
+
+.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) { $routeProvider.
+    when('/', {
+      templateUrl: 'partials/home.html',
+      controller: 'appCtrl'
+    }).
+    when('/requests', {
+      templateUrl: 'partials/requests.html',
+      controller: 'requestsCtrl'
+    }).
+    when('/users', {
+      templateUrl: 'partials/users.html',
+      controller: 'userCtrl'
+    }).
+    otherwise({
+      redirectTo: '/'
+    });
+//    $locationProvider.html5Mode(true);
+  }
+])
 
 .directive('formAutofillFix', function() {
   return function(scope, elem, attrs) {
@@ -158,6 +179,14 @@ angular.module('CollideOSphere', ['720kb.datepicker'])
   $scope.confirmEmail = function(user) {
     user.valid_email = true;
     $http.patch('/users/' + user.id, {valid_email: true}).error(function(data){
+      alert(data);
+    });
+  }
+
+  $scope.deleteUser = function(user) {
+    $http.delete('/users/' + user.id).success(function() {
+      $('tr#user_' + user.id).hide();
+    }).error(function(data){
       alert(data);
     });
   }
