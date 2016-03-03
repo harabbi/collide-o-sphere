@@ -1,0 +1,83 @@
+<h3><i>NEW REQUESTS!</i></h3>
+<div class="panel panel-default" ng-repeat="request in requests | filter:{status: 'NEW'}">
+  <div class="panel-body">
+    <div class="fluid-container">
+      <div class="col-md-4">{{request.rental_date | date: 'EEE, MMM d, y h:mm a'}}</div>
+      <div class="col-md-4">{{request.rental_size}}</div>
+      <div class="col-md-4">{{request.num_guests}} guests</div>
+
+      <div class="col-md-4">{{request.user.first_name}} {{request.user.last_name}}: {{request.user.email}}</div>
+      <div class="col-md-4">{{request.event_type}} ({{request.event_type_other}})</div>
+      <div class="col-md-4">{{request.place_other}}</div>
+
+      <div class="col-md-12"><hr class="featurette-divider" /></div>
+
+      <div class="col-md-11">Comments: {{request.comments}}</div>
+      <div class="col-md-1" style="cursor: pointer;">
+          <a ng-click=""><span class="glyphicon glyphicon-remove"></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Pending Rentals</h3>
+<div class="panel panel-default" ng-repeat="request in requests | filter:{status: 'PENDING'}">
+  <div class="panel-body">
+    <div class="fluid-container">
+      <div class="col-md-4">{{request.rental_date | date: 'EEE, MMM d, y h:mm a'}}</div>
+      <div class="col-md-4">{{request.rental_size}}</div>
+      <div class="col-md-4">{{request.num_guests}} guests</div>
+
+      <div class="col-md-4">{{request.user.first_name}} {{request.user.last_name}}: {{request.user.email}}</div>
+      <div class="col-md-4">{{request.event_type}} ({{request.event_type_other}})</div>
+      <div class="col-md-4">{{request.place_other}}</div>
+
+      <div class="col-md-12"><hr class="featurette-divider" /></div>
+
+      <div class="col-md-12">Comments: {{request.comments}}</div>
+    </div>
+  </div>
+</div>
+
+
+<h3>Upcoming Rentals</h3>
+<div class="panel panel-default" ng-repeat="request in requests | filter:{status: 'UPCOMING'}">
+  <div class="panel-body">
+    <div class="fluid-container">
+      <div class="col-md-4">{{request.rental_date | date: 'EEE, MMM d, y h:mm a'}}</div>
+      <div class="col-md-4">{{request.rental_size}}</div>
+      <div class="col-md-4">{{request.num_guests}} guests</div>
+
+      <div class="col-md-4">{{request.user.first_name}} {{request.user.last_name}}: {{request.user.email}}</div>
+      <div class="col-md-4">{{request.event_type}} ({{request.event_type_other}})</div>
+      <div class="col-md-4">{{request.place_other}}</div>
+
+      <div class="col-md-12"><hr class="featurette-divider" /></div>
+
+      <div class="col-md-11">Comments: {{request.comments}}</div>
+      <div class="col-md-1">
+          <a ng-click=""><span class="glyphicon glyphicon-remove"></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h3>Past Rentals</h3>
+<div class="panel panel-default" ng-repeat="request in requests | filter:{status: 'COMPLETE'}">
+  <div class="panel-body">
+    <div class="fluid-container">
+      <div class="col-md-4">{{request.rental_date | date: 'EEE, MMM d, y h:mm a'}}</div>
+      <div class="col-md-4">{{request.rental_size}}</div>
+      <div class="col-md-4">{{request.num_guests}} guests</div>
+
+      <div class="col-md-4">{{request.user.first_name}} {{request.user.last_name}}: {{request.user.email}}</div>
+      <div class="col-md-4">{{request.event_type}} ({{request.event_type_other}})</div>
+      <div class="col-md-4">{{request.place_other}}</div>
+
+      <div class="col-md-12"><hr class="featurette-divider" /></div>
+
+      <div class="col-md-12">Comments: {{request.comments}}</div>
+    </div>
+  </div>
+</div>

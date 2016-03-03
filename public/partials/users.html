@@ -1,5 +1,5 @@
 <h2>Users</h2>
-<table class="users-list" ng-show="current_user.is_staff">
+<table class="users-list">
   <tr>
     <th></th>
     <th>First Name</th>
@@ -11,16 +11,16 @@
     <td><span ng-show="user.is_staff">(Staff)</span></td>
     <td>{{user.first_name}}</td>
     <td>{{user.last_name}}</td>
-    <td ng-class="{'bad-email': !user.valid_email}">
-      {{user.email}}
+    <td ng-class="{'bad-email': !user.valid_email}">{{user.email}}</td>
+    <td>{{user.last_login}}</td>
+    <td style="cursor: pointer;">
       <span ng-show="user.valid_email" class="glyphicon glyphicon-ok" style="color: green;"></span>
-      <a ng-hide="user.valid_email" ng-click="confirmEmail(user)">
+      <a ng-hide="user.valid_email" ng-click="confirmEmail(user)" title="Confirm This Email">
         <span class="glyphicon glyphicon-thumbs-up" style="color: black;"></span>
       </a>
-      <a ng-hide="user.is_staff" ng-click="deleteUser(user)">
+      <a ng-hide="user.is_staff" ng-click="deleteUser(user)" title="Delete this User (and associated Bookings)">
         <span class="glyphicon glyphicon-remove" style="color: black;"></span>
       </a>
     </td>
-    <td>{{user.last_login}}</td>
   </tr>
-</ul>
+</table>

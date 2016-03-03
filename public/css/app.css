@@ -29,6 +29,7 @@ hr {
   border-radius: 0;
   z-index: 1500;
   font-size: 130%;
+  margin-bottom: 0px;
 }
 .bubble {
   position: absolute;
