@@ -18,7 +18,7 @@ class RequestsController < ApplicationController
         rental_size: params['rental_size'],
         num_guests: params['num_guests'],
         event_type: params['event_type'],
-        event_type_other: params['event_type'],
+        event_type_other: params['event_type_other'],
         place_other: params['place_other'],
         comments: params['comments']
       )
