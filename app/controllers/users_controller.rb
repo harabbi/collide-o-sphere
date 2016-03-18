@@ -2,6 +2,17 @@ class UsersController < ApplicationController
   before_filter :require_staff, except: [ :create, :login, :logout ]
 
   def create
+    user = User.create(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email]
+    )
+
+    if user
+      render text: "Thanks #{user.first_name}! We're looking forward to seeing you out at our next trial event!!!"
+    else
+      render json: user.errors.full_messages.to_json, status: 406
+    end
   end
 
   def index

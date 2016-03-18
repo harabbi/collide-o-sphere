@@ -40,6 +40,7 @@
                 <li ng-class="{ active: isActive('home')}"><a class="scroll" ng-click="scrollTo(this,'home')">Home</a></li>
                 <li ng-class="{ active: isActive('pricing')}"><a class="scroll" ng-click="scrollTo(this,'pricing')">Pricing</a></li>
                 <li ng-class="{ active: isActive('faq')}"><a class="scroll" ng-click="scrollTo(this,'faq')">FAQ</a></li>
+                <li ng-class="{ active: isActive('book')}"><a class="scroll" ng-click="scrollTo(this,'insider')">Be an Insider</a></li>
                 <li ng-class="{ active: isActive('book')}"><a class="scroll" ng-click="scrollTo(this,'book')">Book an Event</a></li>
               </ul>
               <div class="navbar-nav social-media navbar-right">
@@ -85,9 +86,7 @@
               </p>
             </div>
             <div class="col-md-5">
-              <!--
               <iframe width="100%" height="300px" alt="jump into collide o sphere and play some bubble soccer in maryland" src="https://www.youtube.com/embed/gLv8LCLApEw" frameborder="0" allowfullscreen></iframe>
-              -->
             </div>
           </div>
 
@@ -109,9 +108,7 @@
               </p>
             </div>
             <div class="col-md-5 col-md-pull-7">
-              <!--
               <iframe width="100%" height="300px" alt="collide into your friends at full speed in our spheres in full contact bubble soccer" src="https://www.youtube.com/embed/29NoYJAkyys" frameborder="0" allowfullscreen></iframe>
-              -->
             </div>
           </div>
 
@@ -161,6 +158,8 @@
           <div id="pricing" ng-include="'/partials/pricing.html'"></div>
 
           <div id="faq" ng-controller="faqCtrl" ng-include="'/partials/faq.html'"></div>
+
+          <div id="insider" ng-controller="userCtrl" ng-include="'/partials/insider.html'"></div>
 
           <div id="book" ng-controller="bookCtrl" ng-include="'/partials/book.html'"></div>
 

@@ -41,13 +41,22 @@ angular.module('CollideOSphere', ['720kb.datepicker'])
 .controller('bookCtrl', function($scope, $http) {
   $scope.bookRequest = {};
 
-//  $http.get('/places?pending=false').success(function(data){
-//    $scope.places = data;
-//  });
-
   $scope.submitBooking = function() {
     $http.post('/requests', $scope.bookRequest).success(function(data) {
       $('#requestForm')[0].reset();
+      alert(data);
+    }).error(function(data) {
+      alert(data);
+    });
+  }
+})
+
+.controller('userCtrl', function($scope, $http) {
+  $scope.user = {};
+
+  $scope.submitUser = function() {
+    $http.post('/users', $scope.user).success(function(data) {
+      $('#userForm')[0].reset();
       alert(data);
     }).error(function(data) {
       alert(data);
